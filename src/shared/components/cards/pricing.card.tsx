@@ -4,6 +4,7 @@ import { ICONS } from "@/shared/utils/icons";
 import { useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const PricingCard = ({ active }: { active: string }) => {
   const { user } = useUser();
@@ -58,7 +59,9 @@ const PricingCard = ({ active }: { active: string }) => {
         </div>
         <div className="mt-auto">
           <Button className="w-full text-xl !py-6 bg-[#3843D0] text-white">
+            <Link href={"/dashboard"}>
             Get Started
+            </Link>
           </Button>
           <p className="pt-1 opacity-[.7] text-center">
             30-day free trial of Scale features, then free forever
@@ -113,7 +116,7 @@ const PricingCard = ({ active }: { active: string }) => {
                 price:
                   active === "Monthly"
                     ? "price_1PBmHGCKQ4GWi19n2Qwdh4IF"
-                    : "price_1PBm3iCKQ4GWi19nDfug1QAN",
+                    : "price_1PC7BwCKQ4GWi19nMNqyKXAw",
               })
             }
           >
@@ -172,7 +175,7 @@ const PricingCard = ({ active }: { active: string }) => {
                   price:
                     active === "Monthly"
                       ? "price_1PBmIiCKQ4GWi19nK1OUkkj2"
-                      : "price_1PBmFRCKQ4GWi19n9PDW8Dzf",
+                      : "price_1PC7DeCKQ4GWi19nsZykg902",
                 })
               }
             >
