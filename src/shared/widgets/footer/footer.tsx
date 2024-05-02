@@ -1,0 +1,77 @@
+import Link from "next/link";
+import React from "react";
+import FooterLogo from "./footer.logo";
+import { FaGithub, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram } from "react-icons/fa6";
+
+const Footer = () => {
+  return (
+    <footer className="w-full bg-black text-white pt-10">
+      <div className="w-[95%] mx-auto py-5 flex flex-col md:flex-row">
+        <div className="flex flex-col items-center md:items-start w-full md:w-[40%]">
+          <Link href="/" className="inline-block">
+            <FooterLogo />
+          </Link>
+          <p className="text-xl py-4 text-center md:text-left">
+            Get BeeClone updates delivered directly to your inbox.
+          </p>
+          <div className="flex items-center w-full justify-center md:justify-start">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="bg-white w-[60%] md:w-[35%] border h-[46px] px-4 rounded rounded-r-none outline-none border-[#3843D0]"
+            />
+            <button className="w-[90px] cursor-pointer rounded-r h-[47px] bg-[#3843D0] text-white">
+              Submit
+            </button>
+          </div>
+          <br />
+          <p className="text-xs text-center md:text-left">
+            By subscribing you agree with our Privacy Policy and provide
+            consent to receive updates from our company.
+          </p>
+        </div>
+        <div className="w-full md:w-[60%] flex md:justify-end justify-center py-5 md:py-0">
+          <div className="md:w-[50%] flex justify-around px-5 md:px-0">
+            <div className="mr-10 md:mr-0">
+              <ul>
+                <li className="text-md pb-4 cursor-pointer">Create</li>
+                <li className="text-md pb-4 cursor-pointer">Write</li>
+                <li className="text-md pb-4 cursor-pointer">Growth</li>
+                <li className="text-md pb-4 cursor-pointer">Monetize</li>
+                <li className="text-md pb-4 cursor-pointer">Analyze</li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li className="text-md pb-4 cursor-pointer">Careers</li>
+                <li className="text-md pb-4 cursor-pointer">Pricing</li>
+                <li className="text-md pb-4 cursor-pointer">Shop</li>
+                <li className="text-md pb-4 cursor-pointer">Compare</li>
+                <li className="text-md pb-4 cursor-pointer">Love</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-[95%] mx-auto pb-10 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between md:items-center border-white-4 border-t mt-10">
+      <p className="text-sm text-gray-400 mt-10">
+          © 2024 BeeClone, Inc. All rights reserved.
+        </p>
+        <div className="flex justify-center space-x-4 mt-10 mr-0 md:mr-20">
+          <a href="https://twitter.com" className="text-white mt-0 md:mt-10"><FaTwitter /></a>
+
+          <a href="https://instragram.com" className="text-white mt-0 md:mt-10"><FaInstagram /></a>
+
+          <a href="https://facebook.com" className="text-white mt-0 md:mt-10"><FaFacebookF /></a>
+
+          <a href="https://linkedin.com/in/jeffjiang13" className="text-white mt-0 md:mt-10"><FaLinkedinIn /></a>
+
+          <a href="https://github.com/jeffjiang13" className="text-white mt-0 md:mt-10"><FaGithub /></a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
