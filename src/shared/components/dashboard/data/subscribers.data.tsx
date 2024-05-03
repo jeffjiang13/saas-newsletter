@@ -14,11 +14,11 @@ const SubscribersData = () => {
   const columns = [
     { field: "id", headerName: "ID", flex: 1, hide: isMobile },
     { field: "email", headerName: "Email", flex: 2 },
-    { field: "createdAt", headerName: "Subscribed At", flex: 1, valueFormatter: ({ value }) => format(value) },
+    { field: "createdAt", headerName: "Subscribed At", flex: 0.5 },
     { field: "status", headerName: "Status", flex: 1 },
     { field: "source", headerName: "Source", flex: 1 },
   ];
-
+console.log(data)
   const mobileLayout = () => (
     <Box sx={{
       margin: 0,
@@ -27,7 +27,7 @@ const SubscribersData = () => {
       height: 'calc(100vh - 90px)', // Adjusted for potential padding and toolbar height
       width: '100%'
     }}>
-      {data.map(subscriber => (
+      {data.map((subscriber: subscribersDataTypes) => (
         <Paper key={subscriber._id} elevation={2} sx={{
           marginBottom: '4px', // consistent spacing between items
           padding: '20px'
@@ -57,7 +57,7 @@ const SubscribersData = () => {
         }}>
           <DataGrid
             checkboxSelection
-            rows={data.map(subscriber => ({
+            rows={data.map((subscriber:subscribersDataTypes) => ({
               id: subscriber._id,
               email: subscriber.email,
               createdAt: subscriber.createdAt,
@@ -65,8 +65,6 @@ const SubscribersData = () => {
               source: subscriber.source,
             }))}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5, 10, 20]}
             autoHeight
             components={{ Toolbar: GridToolbar }}
           />
