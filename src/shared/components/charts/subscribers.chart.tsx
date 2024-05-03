@@ -62,38 +62,33 @@ const SubscribersChart = () => {
   // ];
 
   return (
-    <div className="my-5 p-5 border rounded bg-white w-full md:h-[55vh] xl:h-[60vh]">
-      <div className="w-full flex">
+    <div className="my-5 p-5 border rounded bg-white w-full">
+      <div className="w-full flex justify-between">
         <h3 className="font-medium">Active Subscribers</h3>
-      </div>
-      <div className="flex w-full items-center justify-between">
-        <p className="opacity-[.5]">Shows all active subscribers</p>
         <div className="flex items-center">
           <div className="w-2 h-2 rounded-full bg-[#EB4898]" />
           <span className="pl-2 text-sm opacity-[.7]">Subscribers</span>
         </div>
       </div>
+      <p className="opacity-[.5] text-sm">Shows all active subscribers</p>
       {loading ? (
         <div className="h-[85%] flex items-center justify-center w-full">
           <h5>Loading...</h5>
         </div>
       ) : (
-        <ResponsiveContainer width="100%" height={"85%"} className={"mt-5"}>
+        <ResponsiveContainer width="100%" height={300}>
           <LineChart
-            width={500}
-            height={200}
             data={data}
-            syncId="anyId"
             margin={{
               top: 10,
-              right: 30,
-              left: 0,
+              right: 10,
+              left: -10,
               bottom: 0,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
+            <XAxis dataKey="month" tick={{ fontSize: 10 }} />
+            <YAxis tick={{ fontSize: 10 }} />
             <Tooltip />
             <Line
               type="monotone"

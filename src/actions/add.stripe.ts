@@ -23,7 +23,7 @@ export const addStripe = async () => {
       await stripe.customers
         .create({
           email: user?.emailAddresses[0].emailAddress,
-          name: user?.firstName! + user?.lastName,
+          name: user?.firstName! + " " + user?.lastName,
         })
         .then(async (customer) => {
           await Membership.create({

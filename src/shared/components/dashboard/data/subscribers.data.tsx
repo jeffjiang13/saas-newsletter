@@ -1,101 +1,79 @@
 'use client';
 import useSubscribersData from "@/shared/hooks/useSubscribersData";
 import { format } from "timeago.js";
-import { Box } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box, Paper } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const SubscribersData = () => {
-  const {data,loading} = useSubscribersData();
+  const { data, loading } = useSubscribersData();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "email", headerName: "Email", flex: 0.8 },
-    { field: "createdAt", headerName: "Subscribed At", flex: 0.5 },
-    { field: "source", headerName: "Source", flex: 0.5 },
-    {
-      field: "status",
-      headerName: "Status",
-      flex: 0.5,
-      renderCell: (params: any) => {
-        return (
-          <>
-            <h1>{params.row.status}</h1>
-          </>
-        );
-      },
-    },
+    { field: "id", headerName: "ID", flex: 1, hide: isMobile },
+    { field: "email", headerName: "Email", flex: 2 },
+    { field: "createdAt", headerName: "Subscribed At", flex: 1, valueFormatter: ({ value }) => format(value) },
+    { field: "status", headerName: "Status", flex: 1 },
+    { field: "source", headerName: "Source", flex: 1 },
   ];
 
-  const rows: any = [];
-  
-  data?.forEach((i:subscribersDataTypes) => {
-    rows.push({
-        id: i?._id,
-        email: i?.email,
-        createdAt: format(i?.createdAt),
-        source: i?.source,
-        status: i?.status,
-    })
-  })
-  
-  return (
-    <Box m="20px">
-      <Box
-        m="40px 0 0 0"
-        height="80vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-            outline: "none",
-          },
-          "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
-            color: "#000",
-          },
-          "& .MuiDataGrid-sortIcon": {
-            color: "#000",
-          },
-          "& .MuiDataGrid-row": {
-            color: "#000",
-            borderBottom: "1px solid #0000001f!important",
-          },
-          "& .MuiTablePagination-root": {
-            color: "#000",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none!important",
-          },
-          "& .name-column--cell": {
-            color: "#000",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#A4A9FC",
-            borderBottom: "none",
-            color: "#000",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: "#fff",
-            color: "#000",
-            border: "1px solid #0000001f",
-          },
-          "& .MuiDataGrid-footerContainer": {
-            color: "#000",
-            borderTop: "none",
-            backgroundColor: "#A4A9FC",
-            borderBottomLeftRadius: "5px",
-            borderBottomRightRadius: "5px",
-          },
-          "& .MuiCheckbox-root": {
-            color: `#3462ea !important`,
-          },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: "#000!important",
-          },
-        }}
-      >
-        <DataGrid checkboxSelection rows={rows} columns={columns} />
-      </Box>
+  const mobileLayout = () => (
+    <Box sx={{
+      margin: 0,
+      padding: '8px',
+      overflowY: 'auto',
+      height: 'calc(100vh - 90px)', // Adjusted for potential padding and toolbar height
+      width: '100%'
+    }}>
+      {data.map(subscriber => (
+        <Paper key={subscriber._id} elevation={2} sx={{
+          marginBottom: '4px', // consistent spacing between items
+          padding: '20px'
+        }}>
+          <div><strong>ID:</strong> {subscriber._id}</div>
+          <div><strong>Email:</strong> {subscriber.email}</div>
+          <div><strong>Subscribed At:</strong> {format(subscriber.createdAt)}</div>
+          <div><strong>Status:</strong> {subscriber.status}</div>
+          <div><strong>Source:</strong> {subscriber.source}</div>
+        </Paper>
+      ))}
     </Box>
-  )
+  );
+
+  return (
+    <Box sx={{
+      m: 2,
+      height: '100%',
+      overflow: 'hidden' // Ensure the main container does not itself scroll
+    }}>
+      {isMobile ? (
+        mobileLayout()
+      ) : (
+        <Box sx={{
+          height: '80vh', // Consistent with desktop view
+          '& .MuiDataGrid-root': { border: "none" }
+        }}>
+          <DataGrid
+            checkboxSelection
+            rows={data.map(subscriber => ({
+              id: subscriber._id,
+              email: subscriber.email,
+              createdAt: subscriber.createdAt,
+              status: subscriber.status,
+              source: subscriber.source,
+            }))}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5, 10, 20]}
+            autoHeight
+            components={{ Toolbar: GridToolbar }}
+          />
+        </Box>
+      )}
+    </Box>
+  );
 }
 
-export default SubscribersData
+export default SubscribersData;

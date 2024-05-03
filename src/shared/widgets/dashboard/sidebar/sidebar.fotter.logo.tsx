@@ -44,7 +44,7 @@ const SidebarFotterLogo = () => {
           </g>
         </g>
       </svg>
-      <h5 className="absolute right-7 pt-1 opacity-[.8] font-medium text-lg">
+      <h5 className="absolute right-12 pt-1 opacity-[.8] font-medium text-lg">
         BeeClone
       </h5>
     </div>

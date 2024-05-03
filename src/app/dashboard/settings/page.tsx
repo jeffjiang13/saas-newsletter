@@ -54,10 +54,10 @@ const Page = () => {
   };
 
   return (
-    <div className="w-[85%] p-5">
+    <div className="w-[100%] md:w-[85%] p-5">
       <SettingsTab />
       {activeItem === "Customize Profile" && (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-5">
           <UserProfile />
         </div>
       )}
@@ -70,7 +70,7 @@ const Page = () => {
               </h3>
             </div>
           ) : (
-            <div className="p-4 w-full overflow-hidden">
+            <div className="p-4 w-full md:w-[140vh] overflow-hidden">
               <h3>API KEY:</h3>
               <p className="whitespace-pre-line overflow-hidden break-words copy-text">
                 {apiKey}

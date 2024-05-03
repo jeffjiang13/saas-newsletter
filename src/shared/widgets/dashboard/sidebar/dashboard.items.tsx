@@ -6,6 +6,7 @@ import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
 import SidebarFotterLogo from "./sidebar.fotter.logo";
 import { useEffect } from "react";
+// @ts-ignore
 import { LayoutProps } from '../../../../../.next/types/app/dashboard/audience/page';
 
 const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
@@ -89,13 +90,13 @@ const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
           {/* footer */}
           <br />
           <br />
-          <div className="w-full flex justify-center cursor-pointer">
-            <a className="w-full flex justify-center cursor-pointer"
+          <div className="w-full flex cursor-pointer">
+            <a className="w-full flex cursor-pointer"
               href={"/"}>
               <SidebarFotterLogo />
             </a>
           </div>
-          <p className="text-sm text-center pt-5 pb-10">
+          <p className="text-sm pt-5 pb-10">
             © 2024 BeeClone, Inc. All rights reserved.
           </p>
         </>
