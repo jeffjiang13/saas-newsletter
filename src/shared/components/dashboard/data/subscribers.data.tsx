@@ -18,7 +18,7 @@ const SubscribersData = () => {
     { field: "status", headerName: "Status", flex: 1 },
     { field: "source", headerName: "Source", flex: 1 },
   ];
-console.log(data)
+
   const mobileLayout = () => (
     <Box sx={{
       margin: 0,
