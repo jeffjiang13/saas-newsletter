@@ -30,7 +30,7 @@ const Main = () => {
         Hi {user?.fullName} 👋
       </h1>
       <p className="opacity-[.7] text-sm pt-2">
-        Here's how your publication is doing
+        Here&apos;s how your publication is doing
       </p>
       <br />
       <div className="flex flex-col md:flex-row">
