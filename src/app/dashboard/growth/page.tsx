@@ -7,6 +7,10 @@ const GrowthPage = () => {
     return (
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <h1 className="text-2xl text-surface-900 font-medium" >Growth</h1>
+            <p className="opacity-[.7] text-sm pt-2">
+                Track your growth
+            </p>
+            <br />
             <DashboardOverViewCard />
             <SubscribersChart />
         </Container>
