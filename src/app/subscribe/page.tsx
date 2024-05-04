@@ -34,7 +34,7 @@ const Page = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center h-screen">
       <div>
-        <h1 className="text-7xl pb-8 capitalize">{username} NewsLetter</h1>
+        <h1 className="text-7xl pb-8 capitalize">{username} Newsletter</h1>
       </div>
       <form
         className="flex w-full max-w-md border rounded overflow-hidden"

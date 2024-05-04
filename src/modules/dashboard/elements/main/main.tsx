@@ -38,8 +38,8 @@ const Main = () => {
           <DashboardOverViewCard />
           <SubscribersChart />
         </div>
-        <div className="w-[350px] md:w-[35%] md:max-w-[430px] flex-1">
-          <div className="w-full flex justify-center md:justify-end">
+        <div className="w-[380px-450px] md:max-w-[380px] flex-1">
+          <div className="w-full flex justify-center md:justify-end mt-5 md:mt-0">
           <Link href="/dashboard/write">
             <Button className="bg-black text-white text-lg rounded !px-6">
               <span className="mr-1 ml-[-5px]">{ICONS.write}</span>
