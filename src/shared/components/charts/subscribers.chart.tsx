@@ -1,7 +1,6 @@
 "use client";
-import { subscribersAnalytics } from "@/actions/subscribers.analytics";
-import useSubscribersAnalytics from "@/shared/hooks/useSubscribersAnalytics";
 import { useEffect, useState } from "react";
+import useSubscribersData from "@/shared/hooks/useSubscribersData";
 import {
   LineChart,
   Line,
@@ -12,90 +11,72 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-interface subscribersAnalyticsData {
+interface SubscribersAnalyticsData {
   month: string;
-  count: string;
+  count: number;
 }
 
 const SubscribersChart = () => {
-  const { subscribersData, loading } = useSubscribersAnalytics();
+  const { data: subscriberData, loading } = useSubscribersData();
+  const [chartData, setChartData] = useState<SubscribersAnalyticsData[]>([]);
 
-  const data: subscribersAnalyticsData[] = [];
+  useEffect(() => {
+    if (!loading && subscriberData) {
+      const now = new Date();
+      const monthlyCounts: Record<string, number> = {};
 
-  subscribersData &&
-    subscribersData?.last7Months?.forEach((item: subscribersAnalyticsData) => {
-      data.push({
-        month: item?.month,
-        count: item?.count,
+      // Initialize months with zeros
+      for (let i = 6; i >= 0; i--) {
+        const month = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        const monthKey = month.toLocaleString('default', { month: 'short', year: 'numeric' });
+        monthlyCounts[monthKey] = 0; // Start all months at zero
+      }
+
+      // Accumulate counts per month
+      subscriberData.forEach((subscriber: any) => {
+        const month = new Date(subscriber.createdAt).toLocaleString('default', { month: 'short', year: 'numeric' });
+        if (monthlyCounts.hasOwnProperty(month)) {
+          monthlyCounts[month]++;
+        }
       });
-    });
 
-  // const data = [
-  //   {
-  //     month: "Jan 2024",
-  //     count: 2400,
-  //   },
-  //   {
-  //     month: "Feb 2024",
-  //     count: 1398,
-  //   },
-  //   {
-  //     month: "March 2024",
-  //     count: 9800,
-  //   },
-  //   {
-  //     month: "April 2024",
-  //     count: 3908,
-  //   },
-  //   {
-  //     month: "May 2024",
-  //     count: 4800,
-  //   },
-  //   {
-  //     month: "Jun 2024",
-  //     count: 3800,
-  //   },
-  //   {
-  //     month: "July 2024",
-  //     count: 4300,
-  //   },
-  // ];
+      // Convert the counts into an array for the chart
+      const data: SubscribersAnalyticsData[] = Object.keys(monthlyCounts).map(month => ({
+        month,
+        count: monthlyCounts[month]
+      }));
+
+      setChartData(data);
+    }
+  }, [subscriberData, loading]);
 
   return (
-    <div className="my-5 p-5 border rounded bg-white w-full">
-      <div className="w-full flex justify-between">
+    <div className="my-5 p-5 border rounded bg-white w-full md:h-[55vh] xl:h-[60vh]">
+      <div className="w-full flex">
         <h3 className="font-medium">Active Subscribers</h3>
+      </div>
+      <div className="flex w-full items-center justify-between">
+        <p className="opacity-[.5]">Shows all active subscribers</p>
         <div className="flex items-center">
           <div className="w-2 h-2 rounded-full bg-[#EB4898]" />
           <span className="pl-2 text-sm opacity-[.7]">Subscribers</span>
         </div>
       </div>
-      <p className="opacity-[.5] text-sm">Shows all active subscribers</p>
       {loading ? (
         <div className="h-[85%] flex items-center justify-center w-full">
           <h5>Loading...</h5>
         </div>
       ) : (
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={"85%"}>
           <LineChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 10,
-              left: -10,
-              bottom: 0,
-            }}
+            data={chartData}
+            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" tick={{ fontSize: 10 }} />
-            <YAxis tick={{ fontSize: 10 }} />
+            <XAxis dataKey="month" />
+            <YAxis allowDecimals={false} />
             <Tooltip />
-            <Line
-              type="monotone"
-              dataKey="count"
-              stroke="#EB4898"
-              fill="#EB4898"
-            />
+            <Line type="monotone" dataKey="count" stroke="#EB4898" strokeWidth={2} activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
       )}

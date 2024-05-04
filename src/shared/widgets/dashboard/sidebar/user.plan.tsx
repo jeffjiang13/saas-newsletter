@@ -7,18 +7,17 @@ import { useRouter } from "next/navigation";
 
 const UserPlan = () => {
   const { data, loading } = useSubscribersData();
-  const { data: membershipData, loading: membershipLoading } =
-    useGetMembership();
+  const { data: membershipData, loading: membershipLoading } = useGetMembership();
   const history = useRouter();
-
   const handleManage = async () => {
     await manageSubscription({
       customerId: membershipData?.stripeCustomerId,
+
     }).then((res: any) => {
       history.push(res);
     });
   };
-
+  // console.log(membershipData)
   return (
     <div className="w-full my-3 p-3 bg-[#FDF1F8] rounded hover:shadow-xl cursor-pointer">
       <div className="w-full flex items-center">
@@ -46,7 +45,7 @@ const UserPlan = () => {
           ? "2500"
           : membershipData?.plan === "SCALE"
           ? "10,000"
-          : "1,00,000"}{" "}
+          : "1,000,000"}{" "}
         added
       </h6>
     </div>

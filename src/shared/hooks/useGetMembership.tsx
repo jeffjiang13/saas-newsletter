@@ -22,7 +22,6 @@ const useGetMembership = () => {
         setLoading(false);
       });
   };
-
   return { data, loading };
 };
 
