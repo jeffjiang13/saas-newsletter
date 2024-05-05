@@ -12,8 +12,6 @@ const UserPlan = () => {
   const handleManage = async () => {
     await manageSubscription({
       customerId: membershipData?.stripeCustomerId,
-      eventType: 'manage.subscription' // Here you need to define the proper event type
-
 
     }).then((res: any) => {
       history.push(res);
@@ -46,7 +44,7 @@ const UserPlan = () => {
           membershipData?.plan === "LAUNCH" ? "2,500" :
           membershipData?.plan === "GROWTH" ? "10,000" :
           membershipData?.plan === "SCALE" ? "100,000" : "0"}
-        added
+        {" "}added
       </h6>
     </div>
   );
