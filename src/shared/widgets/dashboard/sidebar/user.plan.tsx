@@ -17,19 +17,19 @@ const UserPlan = () => {
       history.push(res);
     });
   };
-  // console.log(membershipData)
+  console.log('member',membershipData)
   return (
     <div className="w-full my-3 p-3 bg-[#FDF1F8] rounded hover:shadow-xl cursor-pointer">
       <div className="w-full flex items-center">
         <h5 className="text-lg font-medium">
-          {membershipLoading ? "..." : "GROWTH"} Plan
+          {membershipLoading ? "..." : membershipData?.plan} Plan
         </h5>
         <div
-          className="w-[95px] p-2 shadow ml-2 cursor-pointer h-[32px] flex justify-center items-center space-x-1 rounded-lg bg-[#E77CAE]"
+          className="w-[95px] overflow-hidden p-2 shadow ml-2 cursor-pointer h-[32px] flex items-center space-x-1 rounded-lg bg-[#E77CAE] text-white hover:bg-pink-300 hover:text-yellow-300 hover:bg-"
           onClick={handleManage}
         >
-          <span className="text-white text-xl">{ICONS.electric}</span>
-          <span className="text-white text-sm">Upgrade</span>
+          <span className="text-xl flex-shrink-0">{ICONS.electric}</span>
+          <span className="text-sm truncate">Upgrade</span>
         </div>
       </div>
       <h5 className="text-[#831743]">Total subscribers</h5>
