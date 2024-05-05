@@ -14,7 +14,12 @@ const SubscribersData = () => {
   const columns = [
     { field: "id", headerName: "ID", flex: 1, hide: isMobile },
     { field: "email", headerName: "Email", flex: 2 },
-    { field: "createdAt", headerName: "Subscribed At", flex: 0.5 },
+    {
+      field: "createdAt",
+      headerName: "Subscribed At",
+      flex: 1, // Increased flex or use minWidth
+      minWidth: 300, // Set a minimum width for the date
+    },
     { field: "status", headerName: "Status", flex: 1 },
     { field: "source", headerName: "Source", flex: 1 },
   ];
