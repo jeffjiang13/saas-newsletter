@@ -17,7 +17,6 @@ const UserPlan = () => {
       history.push(res);
     });
   };
-  console.log('member',membershipData)
   return (
     <div className="w-full my-3 p-3 bg-[#FDF1F8] rounded hover:shadow-xl cursor-pointer">
       <div className="w-full flex items-center">
