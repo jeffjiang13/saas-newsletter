@@ -27,29 +27,29 @@ export const manageSubscription = async ({
       expand: ['subscriptions'],
     }) as Stripe.Customer & { subscriptions: Stripe.ApiList<Stripe.Subscription> };
 
-    if (!customer.subscriptions.data.length) {
-      throw new Error('No subscriptions found for this customer.');
+    // Check for existing subscriptions and update the database accordingly
+    if (customer.subscriptions.data.length) {
+      const latestSubscription = customer.subscriptions.data[0];
+      const latestPriceId = latestSubscription.items.data[0].price.id;
+
+      // Retrieve the product details using the price ID
+      const price = await stripe.prices.retrieve(latestPriceId);
+      const product = await stripe.products.retrieve(price.product as string);
+
+      // Update membership with the retrieved product name
+      await Membership.findOneAndUpdate(
+        { stripeCustomerId: customerId },
+        { plan: product.name },
+        { new: true }  // Return the updated document
+      );
+    } else {
+      // Handle the case where no active subscriptions are found (e.g., cancelled)
+      await Membership.findOneAndUpdate(
+        { stripeCustomerId: customerId },
+        { plan: 'Cancelled' },
+        { new: true }
+      );
     }
-
-    const latestSubscription = customer.subscriptions.data[0];
-    const latestPriceId = latestSubscription.items.data[0].price.id;
-
-    // Retrieve the product details using the price ID
-    const price = await stripe.prices.retrieve(latestPriceId);
-    const product = await stripe.products.retrieve(price.product as string);
-
-    // Update membership with the retrieved product name
-    const membership = await Membership.findOneAndUpdate(
-      { stripeCustomerId: customerId },
-      { plan: product.name },
-      { new: true }  // Return the updated document
-    );
-
-    if (!membership) {
-      throw new Error('Membership not found for the given customer ID.');
-    }
-
-    console.log('Updated membership plan:', membership.plan);
 
     return portalSession.url;
   } catch (error) {
