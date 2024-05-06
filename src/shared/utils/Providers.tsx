@@ -38,6 +38,7 @@ export default function Providers({ children }: ProviderProps) {
       pathname !== "/sign-up" &&
       pathname !== "/subscribe" &&
       pathname !== "/success" &&
+      pathname !== "/error" &&
       pathname !== "/sign-in" ? (
         <div className="w-full flex flex-col lg:flex-row">
           <Button className="lg:hidden font-bold flex justify-center items-center gap-2 bg-[#3843D0] text-white border-[#3843D0] border-2 rounded-[10px] py-2 px-4 text-sm lg:py-5 lg:px-7 lg:text-lg hover:bg-[#060419]" onClick={toggleSidebar}>Menu</Button>

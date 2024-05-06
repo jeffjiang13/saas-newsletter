@@ -1,10 +1,43 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import FooterLogo from "./footer.logo";
 import { FaGithub, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { FaInstagram } from "react-icons/fa6";
+import { subscribe } from "@/actions/add.subscribe";
+import { useSearchParams } from "next/navigation";
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 const Footer = () => {
+  const [value, setValue] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const username: string = searchParams.get("username")!;
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!value) {
+      toast.error("Please enter a valid email.");
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await subscribe({ email: value, username });
+      if (res.error) {
+        toast.error(res.error);
+      } else {
+        toast.success("You are successfully subscribed!");
+        setValue(""); // Clear the input only on successful subscription
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Subscription failed!");
+    }
+    setLoading(false);
+  };
   return (
     <footer className="w-full bg-black text-white pt-10">
       <div className="w-[95%] mx-auto py-5 flex flex-col md:flex-row">
@@ -16,14 +49,24 @@ const Footer = () => {
             Get BeeClone updates delivered directly to your inbox.
           </p>
           <div className="flex items-center w-full justify-center md:justify-start">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="bg-white w-[60%] md:w-[35%] border h-[46px] px-4 rounded rounded-r-none outline-none border-[#3843D0]"
-            />
-            <button className="w-[90px] cursor-pointer rounded-r h-[47px] bg-[#3843D0] text-white">
-              Submit
-            </button>
+          <form
+            className=" h-[49px] border-2 border-[#3843D0] bg-white rounded-lg shadow-lg overflow-hidden flex"
+            onSubmit={handleSubmit}
+          >
+              <input
+                type="email"
+                name="email"
+                required
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                placeholder="Enter your email"
+                className="px-4 py-3 w-full h-[48px] text-gray-700 leading-tight focus:outline-none"
+                disabled={loading}
+              />
+              <button className="w-[150px] ter cursor-pointer rounded-r h-[49px] bg-[#3843D0] text-white">
+                Subscribe
+              </button>
+            </form>
           </div>
           <br />
           <p className="text-xs text-center md:text-left">
