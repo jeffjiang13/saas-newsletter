@@ -5,7 +5,7 @@ import React from "react";
 import FooterLogo from "./footer.logo";
 import { FaGithub, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { FaInstagram } from "react-icons/fa6";
-import { subscribe } from "@/actions/add.subscribe";
+import { subscribe } from "@/actions/add.subscribe1";
 import { useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
@@ -49,10 +49,10 @@ const Footer = () => {
             Get BeeClone updates delivered directly to your inbox.
           </p>
           <div className="flex items-center w-full justify-center md:justify-start">
-          <form
-            className=" h-[49px] border-2 border-[#3843D0] bg-white rounded-lg shadow-lg overflow-hidden flex"
-            onSubmit={handleSubmit}
-          >
+            <form
+              className=" h-[49px] border-2 border-[#3843D0] bg-white rounded-lg shadow-lg overflow-hidden flex"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="email"
                 name="email"
@@ -63,7 +63,10 @@ const Footer = () => {
                 className="px-4 py-3 w-full h-[48px] text-gray-700 leading-tight focus:outline-none"
                 disabled={loading}
               />
-              <button className="w-[150px] ter cursor-pointer rounded-r h-[49px] bg-[#3843D0] text-white">
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-[150px] ter cursor-pointer rounded-r h-[49px] bg-[#3843D0] text-white">
                 Subscribe
               </button>
             </form>
