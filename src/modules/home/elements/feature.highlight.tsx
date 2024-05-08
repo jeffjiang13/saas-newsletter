@@ -102,7 +102,7 @@ const FeatureHighlight = () => {
             GROW
           </h2>
           <h3 className="text-cyber-ink text-xl md:text-3xl max-w-xl font-[700] mb-7">
-            Use the same suite of tools used by the world’s largest newsletters.
+            Use the same suite of tools used by the world&apos;s largest newsletters.
           </h3>
           <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
             So effective some would consider it cheating.
