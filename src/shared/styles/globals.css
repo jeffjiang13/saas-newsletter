@@ -58,3 +58,16 @@ body {
 .jswdLm .blockbuilder-branding{
   display: none!important;
 }
+.custom-box-shadow-text {
+  position: relative;
+  z-index: 10;
+}
+
+.custom-box-shadow-2, .custom-box-shadow-1 {
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.custom-box-shadow-2:hover, .custom-box-shadow-1:hover {
+  transform: scale(1.02); /* subtle hover effect */
+}

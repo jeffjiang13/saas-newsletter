@@ -42,7 +42,7 @@ const UserPlan = () => {
         {loading ? "..." : data?.length} of{" "}
         {membershipData?.status === "Cancelled" ? "100" :
           membershipData?.plan === "LAUNCH" ? "2,500" :
-          membershipData?.plan === "GROWTH" ? "10,000" :
+          membershipData?.plan === "GROW" ? "10,000" :
           membershipData?.plan === "SCALE" ? "100,000" : "0"}
         {" "}added
       </h6>

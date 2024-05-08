@@ -18,6 +18,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        'custom1': '0 4px 6px rgba(0, 0, 0, 0.1)', // Example shadow
+        'custom2': '0 10px 15px rgba(0, 0, 0, 0.2)' // Example shadow
+      },
+      scale: {
+        105: '1.05',
+        110: '1.1'
+      }
+    }
+  },
+  variants: {
+    extend: {
+      scale: ['hover'], // Enable hover variants for scaling
+      boxShadow: ['hover'] // Enable hover variants for box shadows
+
     },
   },
   plugins: [nextui()],

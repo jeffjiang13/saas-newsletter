@@ -83,7 +83,7 @@ const Footer = () => {
               <ul>
                 <li className="text-md pb-4 cursor-pointer">Create</li>
                 <li className="text-md pb-4 cursor-pointer">Write</li>
-                <li className="text-md pb-4 cursor-pointer">Growth</li>
+                <li className="text-md pb-4 cursor-pointer">Grow</li>
                 <li className="text-md pb-4 cursor-pointer">Monetize</li>
                 <li className="text-md pb-4 cursor-pointer">Analyze</li>
               </ul>

@@ -5,14 +5,14 @@ import Link from "next/link";
 
 const Banner = () => {
   return (
-    <div className="bg-[#f7f5ff] h-[95vh]">
+    <div className="bg-[#f7f5ff] h-[100vh] md:h-[118vh] border-b-1 border-black">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="214"
         height="214"
         fill="none"
-        className="absolute block -top-3 -left-24 md:-left-0"
-      >
+        className="absolute block -top-1 -left-20 md:left-10"
+        >
         <path
           fill="#F092DD"
           stroke="#0B0D2A"
@@ -28,25 +28,24 @@ const Banner = () => {
           alt=""
           width={800}
           height={500}
-          className="w-[80%] object-cover spin-slow"
-        />
+          className="w-[105%] md:w-[160vh] object-cover spin-slow"
+          />
         <div className="absolute">
-          <h1 className="font-clashDisplay uppercase font-bold text-cyber-ink text-[2.75rem] md:text-[7xl] lg:text-[4rem] xl:text-[5.75rem] max-w-4xl mx-auto text-center z-10">
+          <h1 style={{ lineHeight: '1.1' }} className="font-clashDisplay uppercase font-bold text-cyber-ink text-[2.75rem] md:text-[7xl] lg:text-[4rem] xl:text-[5.75rem] max-w-4xl mx-auto text-center z-10">
             THE NEWSLETTER PLATFORM BUILT FOR{" "}
             <span className="font-style">GROWTH.</span>
           </h1>
           <br />
-          <h3 className="text-3xl font-semibold text-center">Built by newsletter people</h3>
+          <h2 className="text-3xl text-center mb-10">Built by newsletter people</h2>
           <br />
-          <div className="flex w-full justify-center">
+          <div className="flex w-full justify-center mb-2">
             <Link href={"/dashboard"}>
-              <Button className="text-xl !p-8 bg-[#3843D0] text-white">
+              <Button className="text-xl !p-9 bg-[#3843D0] text-white">
                 Get Started
               </Button>
             </Link>
           </div>
-          <br />
-          <h5 className="text-center font-semibold text-lg">start a 30 day free trial</h5>
+          <h5 className="text-center text-xl">start a 30 day free trial</h5>
         </div>
       </div>
     </div>

@@ -89,7 +89,7 @@ const PricingCard = ({ active }: { active: string }) => {
             ></path>
           </svg>
           <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl pb-8 border-b border-[#000]">
-            GROWTH
+            GROW
           </h5>
           <br />
           <div className="border-b pb-8 border-black">
