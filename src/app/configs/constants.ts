@@ -4,15 +4,19 @@ import { atom } from "jotai";
 export const navItems: NavItems[] = [
   {
     title: "Features",
+    path: "#features",
   },
   {
     title: "Pricing",
+    path: "#pricing",
   },
   {
     title: "Resources",
+    path: "#resources",
   },
   {
     title: "Docs",
+    path: "#docs",
   },
 ];
 

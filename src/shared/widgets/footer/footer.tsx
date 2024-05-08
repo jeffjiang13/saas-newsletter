@@ -100,23 +100,31 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-[95%] mx-auto pb-10 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between md:items-center border-white-4 border-t mt-10">
-      <p className="text-sm text-gray-400 mt-10">
-          © 2024 BeeClone, Inc. All rights reserved.
-        </p>
-        <div className="flex justify-center space-x-4 mt-10 mr-0 md:mr-20">
-          <a href="https://twitter.com" className="text-white mt-0 md:mt-10"><FaTwitter /></a>
-
-          <a href="https://instragram.com" className="text-white mt-0 md:mt-10"><FaInstagram /></a>
-
-          <a href="https://facebook.com" className="text-white mt-0 md:mt-10"><FaFacebookF /></a>
-
-          <a href="https://linkedin.com/in/jeffjiang13" className="text-white mt-0 md:mt-10"><FaLinkedinIn /></a>
-
-          <a href="https://github.com/jeffjiang13" className="text-white mt-0 md:mt-10"><FaGithub /></a>
+      <div className="w-[95%] mx-auto pb-10 flex flex-col text-center space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0 border-white-4 border-t-2 mt-20">
+        <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+          <div className="py-4">
+            <div className="py-4">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-start space-y-4 md:space-y-0 md:space-x-4">
+                <Link href="" className="block md:inline">Terms</Link>
+                <Link href="" className="block md:inline">Privacy</Link>
+                <Link href="" className="block md:inline">Support</Link>
+                <Link href="" className="block md:inline">Sitemap</Link>
+              </div>
+            </div>
+              <p className="text-sm text-gray-400">
+                © 2024 BeeClone, Inc. All rights reserved.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href="https://twitter.com" className="text-white"><FaTwitter /></a>
+            <a href="https://instagram.com" className="text-white"><FaInstagram /></a>
+            <a href="https://facebook.com" className="text-white"><FaFacebookF /></a>
+            <a href="https://linkedin.com/in/jeffjiang13" className="text-white"><FaLinkedinIn /></a>
+            <a href="https://github.com/jeffjiang13" className="text-white"><FaGithub /></a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
   );
 };
 

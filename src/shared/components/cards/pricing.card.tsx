@@ -18,7 +18,7 @@ const PricingCard = ({ active }: { active: string }) => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-stretch justify-around py-8">
+    <div id="pricing" className="w-full flex flex-col md:flex-row items-stretch justify-around py-8">
       {/* Pricing cards go here, example with one card shown: */}
       <div className="md:w-[400px] flex flex-col bg-white rounded p-5 my-5 md:my-0">
         <div className="flex-grow">
@@ -133,20 +133,10 @@ const PricingCard = ({ active }: { active: string }) => {
       <div className="md:w-[400px] bg-white rounded p-5 my-5 md:my-0">
         <div className="flex-grow">
           {/* Card content */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="33"
-            fill="string"
-            className="mb-4"
-          >
-            <path
-              fill="#fff"
-              stroke="#3843D0"
-              stroke-width="3"
-              d="M33.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L2.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.5126.512 0 0 1 13.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"
-              ></path>
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="33" fill="string" className="flex-shrink-0 mb-4">
+            <path fill="#fff" stroke="#3843D0" stroke-width="3" d="M34.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L3.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.512 6.512 0 0 1 14.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"></path>
+            <path fill="#fff" stroke="#3843D0" stroke-width="3" d="M26.378 13.237a6.512 6.512 0 0 1 0 6.526l-.862 1.488a6.512 6.512 0 0 1-5.635 3.249h-1.762a6.512 6.512 0 0 1-5.635-3.25l-.862-1.487a6.512 6.512 0 0 1 0-6.526l.862-1.488A6.512 6.512 0 0 1 18.119 8.5h1.762a6.512 6.512 0 0 1 5.635 3.25l.862 1.487Z"></path>
+          </svg>
             <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl pb-8 border-b border-[#000]">
               SCALE
             </h5>
