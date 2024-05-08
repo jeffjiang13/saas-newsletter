@@ -1,6 +1,17 @@
+<div align="center" id="top" className="mb-10">
+<img src="./public/favicon.ico" alt="icon" width="150" height="150" />
+
+&#xa0;
+
+  <img src="./public/banner.png" alt="preview" />
+
+<a href="https://jj-newsletter.vercel.app/">Demo</a>
+
+</div>
+
 # SaaS Email Newsletter Platform
 
-Welcome to the SaaS Email Newsletter Platform, a robust solution developed using cutting-edge technologies including Next.js 14, TypeScript, AWS SES, AstraDB, and Stripe. Designed to efficiently manage and send email newsletters, this platform offers enhanced security measures against spam and provides tools for creating beautiful email templates.
+Welcome to the SaaS Email Newsletter Platform, a robust solution developed using cutting-edge technologies including Next.js 14, TypeScript, AWS SES, AstraDB, and Stripe. Designed to efficiently manage and send email newsletters, this platform offers enhanced security measures against spam and provides tools for creating beautiful email templates. This platfrom is a clone of beehiiv newsletter.
 
 ## Table of Contents
 - [Features](#-features)
