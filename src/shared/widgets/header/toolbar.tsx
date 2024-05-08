@@ -20,13 +20,15 @@ const Toolbar = () => {
       </Link>
       {user && (
         <Link href="/dashboard">
-          <div className="inline-block cursor-pointer">
+          <div className="inline-block cursor-pointer mt-1">
             <Image
               src={user.imageUrl || '/default-avatar.png'} // Fallback to default avatar if user.imageUrl is not available
               alt="User Profile"
-              width={40}
-              height={40}
-              className="rounded-full"
+              width={45}
+              height={45}
+              className="rounded-full object-cover"
+              style={{ aspectRatio: '1 / 1' }}  // Ensures the width and height are always equal
+
             />
           </div>
         </Link>
