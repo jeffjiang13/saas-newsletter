@@ -132,7 +132,7 @@ const FeatureHighlight = () => {
            Like you have a full sales and revenue team on your staff.
           </h3>
           <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
-           ...because you do. You just don't pay them (or need to make small talk).
+            {'...because you do. You just don\'t pay them (or need to make small talk).'}
           </p>
           <Link href={"/dashboard"} className="flex justify-center md:justify-start">
             <Button className="bg-white border-[2px] border-[#000] rounded-lg text-xl py-8 px-20 mt-4">
