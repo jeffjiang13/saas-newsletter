@@ -9,6 +9,7 @@ import { saveEmail } from "@/actions/save.email";
 import toast from "react-hot-toast";
 import { GetEmailDetails } from "@/actions/get.email-details";
 import { sendEmail } from "@/shared/utils/email.sender";
+import { getSubscribers } from "@/actions/get.subscribers1";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,31 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
   const { user } = useClerk();
   const emailEditorRef = useRef<EditorRef>(null);
   const history = useRouter();
+
+  const sendToAllSubscribers = async () => {
+    const unlayer = emailEditorRef.current?.editor;
+    unlayer?.exportHtml(async (data) => {
+      const { html } = data;
+      if (!user?.id) {
+        toast.error("User ID is undefined. Cannot fetch subscribers.");
+        return;
+      }
+      const emails = await getSubscribers({ newsLetterOwnerId: user.id });
+      if (emails && emails.length > 0) {
+        await sendEmail({
+          userEmail: emails,
+          subject: subjectTitle,
+          content: html,
+        }).then(() => {
+          toast.success("Email sent to all subscribers successfully!");
+          history.push("/dashboard/write");
+        });
+      } else {
+        toast.error("No subscribers found.");
+      }
+    });
+  };
+
 
   const exportHtml = () => {
     const unlayer = emailEditorRef.current?.editor;
@@ -93,6 +119,13 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
               onClick={exportHtml}
             >
               <span>Send</span>
+            </Button>
+            <Button
+              className="bg-blue-500 text-white cursor-not-allowed flex items-center gap-1 border text-lg rounded-lg"
+              // onClick={sendToAllSubscribers} ^ add cursor pointer when AWS SES approve
+              disabled={true}
+            >
+              <span>Send to All</span>
             </Button>
           </div>
         </div>

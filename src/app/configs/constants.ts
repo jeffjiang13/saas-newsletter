@@ -10,14 +10,14 @@ export const navItems: NavItems[] = [
     title: "Pricing",
     path: "#pricing",
   },
-  {
-    title: "Resources",
-    path: "#resources",
-  },
-  {
-    title: "Docs",
-    path: "#docs",
-  },
+  // {
+  //   title: "Resources",
+  //   path: "#resources",
+  // },
+  // {
+  //   title: "Docs",
+  //   path: "#docs",
+  // },
 ];
 
 export const partners: PartnersTypes[] = [
