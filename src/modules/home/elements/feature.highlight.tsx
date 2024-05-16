@@ -65,9 +65,13 @@ const FeatureHighlight = () => {
                   d="M1 1c4.426 0 4.426 17 8.858 17s4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.853-17 4.426 17 8.857 17 4.427-17 8.858-17 4.431 17 8.853 17 4.426-17 8.857-17 4.427 17 8.858 17 4.431-17 8.853-17 4.426 17 8.857 17 4.431-17 8.858-17 4.426 17 8.857 17 4.432-17 8.858-17 4.431 17 8.858 17 4.431-17 8.853-17 4.426 17 8.857 17 4.431-17 8.858-17 4.426 17 8.857 17 4.431-17 8.863-17 4.431 17 8.857 17" />
           </svg>
           <Link href="/dashboard">
-            <Button className="bg-black text-white border-[2px] border-black rounded-lg text-2xl py-7 px-8 md:py-10 md:px-8 mr-0 md:mr-10 hover:bg-opacity-90 transition duration-300 ease-in-out">
+          <div className="relative button-container1">
+            <div className="button-layer1 bg-[#F092DD] border-black border-2"></div>
+            <div className="button-layer1 bg-[#FFC8EB] border-black border-2"></div>
+            <div className="button-main1 bg-black text-white border-[2px] border-black rounded-lg text-2xl py-7 px-8 md:py-6 md:px-9 mr-0 md:mr-10">
               Start 30 day free trial
-            </Button>
+            </div>
+            </div>
           </Link>
         </div>
       </div>
@@ -89,14 +93,18 @@ const FeatureHighlight = () => {
           <h3 className="text-cyber-ink text-xl md:text-3xl max-w-xl font-[700] mb-7">
             The most powerful editing and design tools in email.
           </h3>
-          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
+          <p className="text-cyber-ink text-lg md:text-2xl max-w-lg font-[400] mb-10">
             Warning: A writing experience unlike anything you&lsquo;ve ever
             experienced - proceed with caution.
           </p>
           <Link href={"/dashboard"} className="flex justify-center md:justify-start">
-            <Button className="bg-white border-[2px] border-[#000] rounded-lg text-xl py-8 px-20 mt-4">
-              Start Building
-            </Button>
+          <div className="relative button-container2">
+            <div className="button-layer2 bg-[#F092DD] border-black border-2"></div>
+            <div className="button-layer2 bg-[#FFC8EB] border-black border-2"></div>
+            <div className="button-main2 bg-white border-[2px] border-[#000] rounded-lg text-xl py-4 px-[6rem]">
+              Start building
+            </div>
+            </div>
           </Link>
         </div>
       </div>
@@ -119,13 +127,17 @@ const FeatureHighlight = () => {
           <h3 className="text-cyber-ink text-xl md:text-3xl max-w-xl font-[700] mb-7">
             Launch the next iconic media brand in minutes. No code needed. Ever.
           </h3>
-          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
+          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-10">
             World class newsletters and websites - just like the pros.
           </p>
           <Link href={"/dashboard"} className="flex justify-center md:justify-start">
-            <Button className="bg-white border-[2px] border-[#000] rounded-lg text-xl py-8 px-20 mt-4">
-              Start Building
-            </Button>
+          <div className="relative button-container2">
+            <div className="button-layer2 bg-[#F092DD] border-black border-2"></div>
+            <div className="button-layer2 bg-[#FFC8EB] border-black border-2"></div>
+            <div className="button-main2 bg-white border-[2px] border-[#000] rounded-lg text-xl py-4 px-[6rem]">
+              Start writing
+            </div>
+          </div>
           </Link>
         </div>
       </div>
@@ -147,13 +159,17 @@ const FeatureHighlight = () => {
           <h3 className="text-cyber-ink text-xl md:text-3xl max-w-xl font-[700] mb-7">
             Use the same suite of tools used by the world&apos;s largest newsletters.
           </h3>
-          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
+          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-10 ">
             So effective some would consider it cheating.
           </p>
           <Link href={"/dashboard"} className="flex justify-center md:justify-start">
-            <Button className="bg-white border-[2px] border-[#000] rounded-lg text-xl py-8 px-20 mt-4">
-              Scale faster
-            </Button>
+            <div className="relative button-container2">
+              <div className="button-layer2 bg-[#F092DD] border-black border-2"></div>
+              <div className="button-layer2 bg-[#FFC8EB] border-black border-2"></div>
+              <div className="button-main2 bg-white border-[2px] border-[#000] rounded-lg text-xl py-4 px-[6rem]">
+                Scale faster
+              </div>
+            </div>
           </Link>
         </div>
       </div>
@@ -174,13 +190,17 @@ const FeatureHighlight = () => {
           <h3 className="text-cyber-ink text-xl md:text-3xl max-w-xl font-[700] mb-7">
            Like you have a full sales and revenue team on your staff.
           </h3>
-          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-7 ">
+          <p className="text-cyber-ink text-lg md:text-2xl max-w-xl font-[400] mb-10 ">
             {'...because you do. You just don\'t pay them (or need to make small talk).'}
           </p>
           <Link href={"/dashboard"} className="flex justify-center md:justify-start">
-            <Button className="bg-white border-[2px] border-[#000] rounded-lg text-xl py-8 px-20 mt-4">
-              Start earning
-            </Button>
+`          <div className="relative button-container2">
+              <div className="button-layer2 bg-[#F092DD] border-black border-2"></div>
+              <div className="button-layer2 bg-[#FFC8EB] border-black border-2"></div>
+              <div className="button-main2 bg-white border-[2px] border-[#000] rounded-lg text-xl py-4 px-[6rem]">
+                Start earning`
+              </div>
+            </div>
           </Link>
         </div>
       </div>

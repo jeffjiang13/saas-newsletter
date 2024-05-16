@@ -40,9 +40,14 @@ const Banner = () => {
           <br />
           <div className="flex w-full justify-center mb-2">
             <Link href={"/dashboard"}>
-              <Button className="text-xl !p-9 bg-[#3843D0] text-white">
-                Get Started
-              </Button>
+            <div className="relative button-container">
+                <div className="button-layer bg-[#F092DD] border-black border-2"></div>
+                <div className="button-layer bg-[#FFC8EB] border-black border-2"></div>
+                <div className="button-main text-white text-lg bg-[#3843D0]">
+                  Get started
+                </div>
+              </div>
+
             </Link>
           </div>
           <h5 className="text-center text-xl">start a 30 day free trial</h5>
