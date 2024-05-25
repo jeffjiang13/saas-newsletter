@@ -11,7 +11,7 @@
 
 # SaaS Email Newsletter Platform
 
-Welcome to the SaaS Email Newsletter Platform, a robust solution developed using cutting-edge technologies including Next.js 14, TypeScript, AWS SES, AstraDB, and Stripe. Designed to efficiently manage and send email newsletters, this platform offers enhanced security measures against spam and provides tools for creating beautiful email templates. This platfrom is a clone of beehiiv newsletter.
+BeeCLone is a SaaS Email Newsletter Platform, a robust solution developed using cutting-edge technologies including Next.js 14, TypeScript, AWS SES, AstraDB, and Stripe. Designed to efficiently manage and send email newsletters, this platform offers enhanced security measures against spam and provides tools for creating beautiful email templates. This platfrom is a clone of beehiiv newsletter.
 
 ## Table of Contents
 - [Features](#-features)
