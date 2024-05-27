@@ -59,7 +59,7 @@ const FeatureHighlight = () => {
         </div>
         <div className="w-full md:w-[50%] flex flex-col md:flex-row justify-center md:justify-end items-center p-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="312" height="19" viewBox="0 0 312 19"
-              className="mb-4 ml-[55px] md:ml-0" // Ensure it's above the button on mobile
+              className="mb-4 ml-[55px] md:ml-0"
               style={{ mixBlendMode: 'screen' }}>
             <path stroke="#808080" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                   d="M1 1c4.426 0 4.426 17 8.858 17s4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.857-17 4.427 17 8.858 17 4.426-17 8.853-17 4.426 17 8.857 17 4.427-17 8.858-17 4.431 17 8.853 17 4.426-17 8.857-17 4.427 17 8.858 17 4.431-17 8.853-17 4.426 17 8.857 17 4.431-17 8.858-17 4.426 17 8.857 17 4.432-17 8.858-17 4.431 17 8.858 17 4.431-17 8.853-17 4.426 17 8.857 17 4.431-17 8.858-17 4.426 17 8.857 17 4.431-17 8.863-17 4.431 17 8.857 17" />
