@@ -148,7 +148,20 @@ body {
   opacity: 0;
   transform: translate(0, 0);
 }
-
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .button-layer1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
 .button-layer1:nth-child(2) {
   z-index: 9;
   transform: translate(-4px, -4px);
