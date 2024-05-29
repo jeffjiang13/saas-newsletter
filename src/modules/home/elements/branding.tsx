@@ -21,7 +21,7 @@ const Branding = () => {
           <>
             <Image
               src={i.url}
-              key={index} // Changed key to index for better performance
+              key={index}
               width={200}
               height={200}
               alt="partner"
@@ -35,7 +35,7 @@ const Branding = () => {
           <>
             <Image
               src={i.url}
-              key={index} // Changed key to index for better performance
+              key={index}
               width={200}
               height={200}
               alt="partner"
